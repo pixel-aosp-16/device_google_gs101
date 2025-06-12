@@ -980,10 +980,6 @@ PRODUCT_PACKAGES_DEBUG += \
 	diag-vibrator-drv2624 \
 	$(NULL)
 
-PRODUCT_PACKAGES += \
-	android.hardware.health-service.gs101 \
-	android.hardware.health-service.gs101_recovery \
-
 # Audio
 # Audio HAL Server & Default Implementations
 include device/google/gs-common/audio/hidl_gs101.mk
