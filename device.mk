@@ -289,16 +289,9 @@ BOARD_USE_CODEC2_AIDL := V1
 ifneq (,$(filter aosp_%,$(TARGET_PRODUCT)))
 DEVICE_MANIFEST_FILE += \
 	device/google/gs101/manifest_media_aosp.xml
-
-PRODUCT_COPY_FILES += \
-	device/google/gs101/media_codecs_aosp_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml
 else
 DEVICE_MANIFEST_FILE += \
 	device/google/gs101/manifest_media.xml
-
-PRODUCT_COPY_FILES += \
-	device/google/gs101/media_codecs_bo_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml \
-	device/google/gs101/media_codecs_aosp_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_aosp_c2.xml
 endif
 
 DEVICE_MATRIX_FILE := \
@@ -333,11 +326,6 @@ PRODUCT_PACKAGES += \
 	fstab.gs101-fips.vendor_ramdisk
 PRODUCT_COPY_FILES += \
 	device/google/gs101/conf/fstab.persist:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.persist
-
-# Shell scripts
-PRODUCT_COPY_FILES += \
-        device/google/gs101/init.display.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.display.sh \
-	device/google/gs101/disable_contaminant_detection.sh:$(TARGET_COPY_OUT_VENDOR)/bin/hw/disable_contaminant_detection.sh
 
 include device/google/gs-common/insmod/insmod.mk
 
@@ -457,14 +445,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.usb.usbradio.config=dm
 endif
 
-# Power HAL
-PRODUCT_COPY_FILES += \
-	device/google/gs101/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
-# Legacy HW
-PRODUCT_COPY_FILES += \
-	device/google/gs101/powerhint_a0.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint_a0.json
-PRODUCT_COPY_FILES += \
-	device/google/gs101/powerhint_a1.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint_a1.json
 -include hardware/google/pixel/power-libperfmgr/aidl/device.mk
 
 # IRQ rebalancing.
@@ -722,9 +702,6 @@ include device/google/gs-common/mediacodec/common/mediacodec_common.mk
 # for Exynos C2 Hal
 include device/google/gs-common/mediacodec/samsung/mediacodec_samsung.mk
 
-PRODUCT_COPY_FILES += \
-	device/google/gs101/media_codecs_performance_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_c2.xml \
-
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.c2.use_dmabufheaps=1 \
     media.c2.dmabuf.padding=512 \
@@ -745,10 +722,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += media.c2.hal.selection=aidl
 
-# 2. OpenMAX IL
-PRODUCT_COPY_FILES += \
-	device/google/gs101/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-	device/google/gs101/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 ####################################
 
 # Telephony
