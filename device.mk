@@ -319,17 +319,7 @@ PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
 
 # Init files
 PRODUCT_COPY_FILES += \
-	$(LOCAL_KERNEL):kernel \
-	device/google/gs101/conf/init.gs101.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.gs101.usb.rc \
-	device/google/gs101/conf/ueventd.gs101.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
-
-PRODUCT_COPY_FILES += \
-	device/google/gs101/conf/init.gs101.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.gs101.rc
-
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_COPY_FILES += \
-	device/google/gs101/conf/init.debug.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.debug.rc
-endif
+	$(LOCAL_KERNEL):kernel
 
 ifneq (,$(filter 5.%, $(TARGET_LINUX_KERNEL_VERSION)))
 PRODUCT_COPY_FILES += \
@@ -338,10 +328,6 @@ else
 PRODUCT_COPY_FILES += \
 	device/google/gs101/storage/6.1/init.gs101.storage.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.gs101.storage.rc
 endif
-
-# Recovery files
-PRODUCT_COPY_FILES += \
-	device/google/gs101/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.gs101.rc
 
 ifneq ($(BOARD_WITHOUT_RADIO),true)
 PRODUCT_SOONG_NAMESPACES += device/google/gs101/conf
