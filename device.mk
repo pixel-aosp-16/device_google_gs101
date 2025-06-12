@@ -1054,7 +1054,7 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
 PRODUCT_BUILD_PVMFW_IMAGE := true
 ifeq ($(TARGET_PKVM_ENABLED),true)
-    PRODUCT_PACKAGES += pkvm_enabler
+
 else
     PRODUCT_COPY_FILES += \
 	    device/google/gs101/pkvm/pkvm_experiment.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/pkvm_experiment.rc
