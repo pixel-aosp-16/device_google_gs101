@@ -61,9 +61,6 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 # Disable Bluetooth as default in factory build
 DEVICE_PACKAGE_OVERLAYS += device/google/gs101/overlay-factory
 
-PRODUCT_COPY_FILES += \
-    device/google/gs101/conf/init.factory.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.factory.rc
-
 # Add factory-friendly changes
 PRODUCT_PACKAGES += \
         FactoryOverlaySettings \
