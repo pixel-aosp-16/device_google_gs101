@@ -790,7 +790,7 @@ $(call soong_config_set,usf,target_soc,gs101)
 
 PRODUCT_COPY_FILES += \
 	device/google/gs101/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml \ # We keep because we modify it
-	device/google/gs101/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
+	device/google/gs101/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml # We keep because we modify it
 
 # modem logging binary/configs
 PRODUCT_PACKAGES += modem_logging_control
